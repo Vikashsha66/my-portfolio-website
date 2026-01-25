@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikash | IT Support & Cloud Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--light);
+        }
+        
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        /* Professional Summary */
+        .summary {
+            background-color: white;
+        }
+        
+        .summary-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        
+        /* Education & Experience */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--secondary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 50%;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 3rem;
+            padding-right: 0;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+        
+        .timeline-item:nth-child(even):before {
+            right: auto;
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content .date {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Skills */
+        .skills {
+            background-color: #f5f7fa;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .skill-tag.highlight {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            border-top: 1px solid #34495e;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 60px;
+            }
+            
+            .timeline-item:before {
+                left: 20px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even):before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Vikash<span>.</span></a>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#summary">Summary</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>IT Support & Cloud Engineer</h1>
+            <p>Resourceful professional with over <span class="highlight">2 years of experience</span> delivering end-to-end technical support, infrastructure maintenance, and user training. Skilled in cloud platforms (AWS, Azure), DevOps tools, and IT systems administration.</p>
+            <a href="#experience" class="btn">View Experience</a>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="summary" id="summary">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Summary</h2>
+            </div>
+            <div class="summary-content">
+                <p>Resourceful IT Support and Cloud Engineer with over 2 years of experience delivering end-to-end technical support, infrastructure maintenance, and user training. Skilled in cloud platforms (AWS, Azure), DevOps tools, and IT systems administration. Known for strong troubleshooting abilities, a proactive mindset, and a commitment to minimizing downtime and enhancing user satisfaction. Passionate about automation, security, and continuous learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>JRNRV University</h3>
+                        <h4>Master of Computer Application</h4>
+                        <span class="date">2024 - 2026</span>
+                        <p>Advanced studies in DevOps, software development, system design, databases, cloud computing, and computer networks, with hands-on projects and practical exposure to real-world applications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>JRNRV University</h3>
+                        <h4>Bachelor of Computer Application</h4>
+                        <span class="date">2021 - 2024</span>
+                        <p>Developed a strong foundation in programming, data structures, databases, operating systems, computer networks, and software development through coursework and academic projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fusion Business Solutions Pvt. Ltd.</h3>
+                        <h4>IT Support & Cloud Engineer</h4>
+                        <span class="date">July 2023 - Present</span>
+                        <ul>
+                            <li>Supported over 700 employees by resolving Level 1 & 2 IT issues across hardware, software, and network layers.</li>
+                            <li>Led the configuration and deployment of Windows and Linux workstations, with cloud backup integration.</li>
+                            <li>Streamlined ticket resolution process using a service desk platform.</li>
+                            <li>Assisted in setting up VPNs, securing endpoints, and maintaining LAN/WAN health.</li>
+                            <li>Deployed Azure virtual machines for testing environments, and managed basic AWS infrastructure under supervision.</li>
+                            <li>Collaborated with the DevOps team for CI/CD pipeline testing, using GitHub and Python scripts.</li>
+                            <li>Hands-on experience with Ansible and Terraform for automation and infrastructure provisioning, Docker and Kubernetes for containerization, and SonarQube and Trivy for code quality and security checks through internal GitHub projects.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag highlight">AWS (EC2, S3, IAM)</span>
+                        <span class="skill-tag">VPC</span>
+                        <span class="skill-tag">ELB</span>
+                        <span class="skill-tag highlight">Microsoft Azure (VMs, AD)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Operating Systems</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Windows 10/11</span>
+                        <span class="skill-tag">Linux (Ubuntu)</span>
+                        <span class="skill-tag">macOS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Automation</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag highlight">CI/CD (GitHub Actions)</span>
+                        <span class="skill-tag">Python scripting</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Networking</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">DNS</span>
+                        <span class="skill-tag">DHCP</span>
+                        <span class="skill-tag">VPNs</span>
+                        <span class="skill-tag">LAN/WAN setup</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Security Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Antivirus</span>
+                        <span class="skill-tag">Firewall configs</span>
+                        <span class="skill-tag">Password policies</span>
+                        <span class="skill-tag">MFA setup</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Remote & Monitoring Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">TeamViewer</span>
+                        <span class="skill-tag">RDP</span>
+                        <span class="skill-tag">AnyDesk</span>
+                        <span class="skill-tag">IP scanner</span>
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">CloudWatch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Vikash</h3>
+                <p>IT Support & Cloud Engineer</p>
+                <div class="contact-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fas fa-file-pdf"></i></a>
+                </div>
+                <div class="languages">
+                    <p><strong>Languages:</strong> English, Hindi</p>
+                </div>
+                <div class="disclaimer">
+                    <p>I solemnly affirm that the information provided above is accurate and complete. I am dedicated to continuous improvement, automation, and operational excellence, and I understand the critical nature of integrity and accountability in IT and DevOps roles.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Vikash - Web Developer & DevOps Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero About Section */
+        .about-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        /* About Content */
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Dual Expertise Section */
+        .expertise {
+            background-color: #f5f7fa;
+            padding: 5rem 0;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .expertise-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .expertise-icon {
+            background-color: var(--secondary);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .expertise-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .expertise-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-tag {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Workflow Section */
+        .workflow {
+            padding: 5rem 0;
+        }
+        
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .workflow-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .step-number {
+            background-color: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .workflow-step h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* Latest Trends Section */
+        .trends {
+            background-color: #f5f7fa;
+            padding: 5rem 0;
+        }
+        
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .trend-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .trend-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .trend-icon {
+            color: var(--secondary);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Vikash<span>.</span></a>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="resume.html#Experience">Experience</a></li>
+                    <li><a href="resume.html#skills">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero About Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Vikash Sharma</h1>
+            <div class="tagline">
+                I am a <span class="highlight">Web Developer</span> and <span class="highlight">DevOps Engineer</span>
+            </div>
+            <p>Bridging the gap between development and operations with modern web technologies and cloud infrastructure.</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>With over 2 years of professional experience in IT support and cloud engineering, I've developed a unique skill set that combines web development expertise with DevOps practices. My journey began with a Bachelor's in Computer Application, where I developed a strong foundation in programming, data structures, and software development.</p>
+                    
+                    <p>Currently pursuing my Master's in Computer Application with a focus on DevOps, cloud computing, and system design, I'm passionate about creating efficient, scalable, and secure digital solutions. My experience at Fusion Business Solutions has allowed me to support over 700 employees while implementing modern cloud infrastructure and automation tools.</p>
+                    
+                    <p>What drives me is the intersection of creativity and efficiency - building beautiful, functional web applications while ensuring they run on robust, automated infrastructure. I believe in continuous learning and staying updated with the latest trends in both web development and DevOps ecosystems.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Web Development and DevOps">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Dual Expertise</h2>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Creating responsive, user-friendly web applications with modern frameworks and best practices in front-end and back-end development.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5/CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>DevOps Engineering</h3>
+                    <p>Implementing CI/CD pipelines, infrastructure as code, containerization, and cloud solutions to streamline development and deployment processes.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">AWS & Azure</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Development Workflow</h2>
+            </div>
+            
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h4>Plan & Design</h4>
+                    <p>Understanding requirements, creating architecture diagrams, and planning both application structure and infrastructure.</p>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h4>Develop</h4>
+                    <p>Writing clean, maintainable code with version control, following best practices for both web development and infrastructure as code.</p>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h4>Test & Build</h4>
+                    <p>Implementing automated testing, containerization, and CI/CD pipelines to ensure quality and streamline deployment.</p>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <h4>Deploy & Monitor</h4>
+                    <p>Deploying to cloud platforms, setting up monitoring, logging, and maintaining infrastructure with automation tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Trends Section -->
+    <section class="trends">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Trends I'm Following</h2>
+            </div>
+            
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <h3><i class="fas fa-robot trend-icon"></i> AI Integration in DevOps</h3>
+                    <p>AI-powered DevOps tools for predictive analytics, automated incident response, and intelligent resource optimization in cloud environments.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3><i class="fas fa-server trend-icon"></i> Serverless Architecture</h3>
+                    <p>Building applications without managing servers using AWS Lambda, Azure Functions, and Google Cloud Functions for improved scalability and cost efficiency.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3><i class="fas fa-shield-alt trend-icon"></i> DevSecOps</h3>
+                    <p>Integrating security practices throughout the DevOps lifecycle with automated security testing, compliance as code, and continuous security monitoring.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3><i class="fas fa-box trend-icon"></i> GitOps</h3>
+                    <p>Using Git as a single source of truth for both application code and infrastructure, enabling automated deployments and version-controlled infrastructure.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3><i class="fas fa-mobile-alt trend-icon"></i> Progressive Web Apps</h3>
+                    <p>Creating web applications that work offline, load quickly, and provide app-like experiences across all devices and platforms.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3><i class="fas fa-sync-alt trend-icon"></i> Edge Computing</h3>
+                    <p>Processing data closer to the source with edge computing solutions to reduce latency and improve performance for distributed applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Vikash Sharma</h3>
+                <p>Web Developer & DevOps Engineer</p>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/vikash-sharma-devops" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="mailto:vikashsha669@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:91020222206"><i class="fas fa-phone"></i></a>
+                </div>
+                <p>&copy; 2024 Vikash Sharma. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Add active class to current page
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
